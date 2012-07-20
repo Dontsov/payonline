@@ -26,7 +26,26 @@ class FormPostViews(object):
             }
             
         return {"values": values}
-'''    
+    
+    def get_security_key(self, params):
+        key = md5('&'.join('='.join(i) for i in params)).hexdigest()
+        '''key = hashlib.md5()
+         key.update(params)
+         return key.hexdigest()'''
+        return key
+    # Данная функция нужна для правильной подаче параметров для вычисления SecurityKey
+    def get_params(self): 
+        params = [('MerchantId', CONFIG['MerchantId']), 
+              ('OrderId',    CONFIG['OrderId']),
+              ('Amount',     CONFIG['Amount']), 
+              ('Currency', CONFIG['Currency']), #В тестовом варианте следующего параметра нет 
+              ('PrivateSecurityKey' , CONFIG['PrivateSecurityKey']),]
+        return params
+    
+    
+    
+''' Тут будет класс обработчик ответа, если не будет устраивать стандартный'''
+    '''   
 class ReturnViews():
     def __init__(self, return_params):
         self.return_params
