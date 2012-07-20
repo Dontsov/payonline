@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Form fo pay</title>
+    <link rel="stylesheet" href="/deform_static/css/form.css"
+          type="text/css"
+            />
+    <script type="text/javascript"
+            src="/deform_static/scripts/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript"
+            src="/deform_static/scripts/deform.js"></script>
+</head>
+<body>
+ 	<h2>Form for pay</h2>
+  	 	<form action="${values.url_pay}" method="post">
+ 	 		<input type="hidden" name="MerchantId" value="${values.MerchantId}" />
+ 	 		<input type="hidden" name="OrderId" value="${values.OrderId}" />
+ 	 		<input type="hidden" name="Amount" value="${values.Amount}" />
+ 	 		<input type="hidden" name="Currency" value="RUB" />
+ 	 		<input type="hidden" name="SecurityKey" value="${values.SecurityKey}" />
+ 	 		<input type="submit" name="submit" value="Перейти к оплате" />
+ 		</form>
+
+</body>
+</html>
