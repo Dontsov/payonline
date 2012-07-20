@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+'''
+Данный файл --- остаток от первой версии программы, где был выбран более сложный и во многом неправильный 
+способ передачи и обработки данных. На данный момент никак не используется.
+'''
 from settings import *
 import urllib, urllib2
 from hashlib import md5
@@ -31,8 +35,6 @@ post_params = params+'&SecurityKey='+'03fa466f12f5ddf1195947c1faa6c101'     #+ge
 def post_request(page, post_params):
     request = urllib2.Request(page, post_params)
     page = urllib2.urlopen(request)
-    #info = page.info()
-    #info = page.read()
     return HTTPFound(location = page)
 
 
@@ -42,7 +44,7 @@ def myview():
     headers = {'Content-Type':'application/json; charset=utf-8'}
     req = urllib2.Request('http://yandex.ru/', json_payload, headers)
     return urllib2.urlopen(req)
-
+''''
 def info_add(name, email):
     dt = datetime.datetime.now()
     file = open(dt.strftime('%Y.%m.%d__:%H:%M') +".txt", "w+")
@@ -50,12 +52,11 @@ def info_add(name, email):
     file.write(info)
     file.close()
     return file
-
+'''
 def index():
     ind = HTTPFound('https://secure.payonlinesystem.com/ru/payment/select/')
     return ind
-  
-info_add('asasas', 'wqqwqwqw')      
+    
 #f = open('test.txt', 'w')
 #f.write(post_request(page, params))
 

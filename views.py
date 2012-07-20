@@ -43,20 +43,7 @@ class FormPostViews(object):
         return params
     
     
-    
-''' Тут будет класс обработчик ответа, если не будет устраивать стандартный'''
-    '''   
-class ReturnViews():
-    def __init__(self, return_params):
-        self.return_params
-        
-    @view_config(renderer="templates/return_view.pt")
-    def response_print(self):
-        response = request.response
-        return response 
-        '''
-   
-      
+
     
     
     
